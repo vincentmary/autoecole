@@ -14,7 +14,8 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <div id="header">
-        <img src="{{ asset('header.png') }}" class="center-block img-rounded img-responsive" alt="cer auto ecole fondary"/>
+        <img src="{{ asset('cer.png') }}" class="left-block img-rounded img-responsive" alt="cer auto ecole fondary"/>
+        <img src="{{ asset('header.png') }}" class="left-block img-rounded img-responsive" alt="cer auto ecole fondary"/>
     </div>
 </head>
 <body>
@@ -32,16 +33,10 @@
             <ul class="nav navbar-nav">
                 <li {% if (app.request.get('_route') in ['autoecole', 'homepage']) %}class="active"{% endif %}><a href="{{  path('autoecole') }}">L'auto-école</a></li>
                 <li {% if app.request.get('_route') starts with 'permis' %}class="active"{% endif %} class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Permis <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{  path('permis', {'type': 'b'}) }}">Permis B</a></li>
-                        <li><a href="{{  path('permis', {'type': 'aac'}) }}">Permis AAC</a></li>
-                        <li><a href="{{  path('permis', {'type': 'etranger'}) }}">Permis étranger</a></li>
-                        <li><a href="{{  path('permis', {'type': 'annulation'}) }}">Annulation permis</a></li>
-                        <li role="separator" class="divider"></li>
-                    </ul>
+                    <a href="{{  path('permis') }}" >Permis </a>
                 </li>
                 <li {% if app.request.get('_route') starts with 'financement' %}class="active"{% endif %}><a href="{{  path('financement') }}">Financements</a></li>
+                <li {% if app.request.get('_route') starts with 'inscription' %}class="active"{% endif %}><a href="{{  path('inscription') }}">Inscription</a></li>
                 <li {% if app.request.get('_route') starts with 'contact' %}class="active"{% endif %}><a href="{{  path('contact') }}">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -51,6 +46,7 @@
 {% block javascripts %}
     <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
 </body>
 </html>

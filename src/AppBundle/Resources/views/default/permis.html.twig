@@ -1,12 +1,105 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    Le Permis de la Catégorie B permet de conduire tous les véhicules de tourisme, les minibus pouvant transporter au maximum 8 passagers ainsi que les camionnettes dont le poids total à charge n'excède pas 3500kg. Ces véhicules peuvent être équipés d'une boite de vitesse mécanique ou automatique. Après 3 ans à partir de la date d'obtention de votre permis B, vous pouvez également piloter une moto ou un scooter de moins de 125cc.
-    L'inscription
-    A 17 ans ½, vous pouvez déjà vous inscrire auprès d'une auto-école, muni des documents nécessaires à votre inscription ainsi qu'une autorisation parentale et commencer votre formation au permis de conduire
-    Le permis B automatique
-    Si vous passez le permis sur un véhicule muni d'un embrayage automatique, votre permis n'est valable que pour la conduite des véhicules munis d'un embrayage automatique.
-    Le permis probatoire
-    Vous venez de réussir votre permis de conduire. Bravo!!! Votre permis est crédité de 6 points pour une période probatoire de 3 ans (2 ans pour ceux qui ont suivi une la filière AAC). Attention à ne pas perdre les points !!!
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-nav permis-menu">
+              <li class="active permis-menu-item">
+                <a href="#permis-b" class="text-center">Permis B</a>
+              </li>
+              <li class="permis-menu-item">
+                <a href="#permis-aac" class="text-center">Conduite Accompagnée (Permis AAC)</a>
+              </li>
+              <li class="permis-menu-item">
+                <a href="#permis-etranger" class="text-center">Permis étranger</a>
+              </li>
+              <li class="permis-menu-item">
+                <a href="#annulation-permis" class="text-center">Annulation permis</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="permis-b" class="container permis-liste">
+        <div>
+            <ul class="list-group">
+                {% set lists = ['20H / 26H / 30H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
+                'Livret de questions orales', 'Livret de questions orales', 'Une heure d\'évaluation de départ'
+                ,'Forfait cours de code', '2 présentations à l\'examen de conduite réelles', '1 présentation à l\'examen de la conduite']
+                %}
+                {% for list in lists %}
+                     <li class="glyphicon glyphicon-ok list-group-item"> {{ list }}</li>
+                {% endfor %}
+            </ul>
+            <div class="text-center">
+                <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+            </div>
+        </div>
+    </div>
+    <div id="permis-aac" class="container hidden permis-liste">
+        <div>
+          <ul class="list-group">
+            {% set lists = ['20H / 26H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
+              'Livret de questions orales', 'Livret de questions orales', 'Une heure d\'évaluation de départ'
+              ,'Forfait cours de code', '2 présentations à l\'examen de conduite réelles', '1 présentation à l\'examen de la conduite']
+            %}
+            {% for list in lists %}
+                <li class="glyphicon glyphicon-ok list-group-item"> {{ list }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="text-center">
+            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+        </div>
+    </div>
+    <div id="permis-etranger" class="container hidden permis-liste">
+      <div>
+        <ul class="list-group">
+          {% set lists = ['15H / 20H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
+          'Forfait cours de code', '1 présentation à l\'examen de code', '1 présentation à l\'examen de conduite']
+          %}
+          {% for list in lists %}
+                <li class="glyphicon glyphicon-ok list-group-item"> {{ list }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="text-center">
+            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+      </div>
+    </div>
+    <div id="annulation-permis" class="container hidden permis-liste">
+      <div class="col-xs-6 col-sd-5">
+        <div class="row text-center">
+            Annulation Code
+        </div>
+        <div class="row">
+          <ul class="list-group">
+              {% set lists = ['Frais d\'inscription', 'Pochette pédagogique',
+              'Forfait cours de code', '1 présentation à l\'examen de code']
+              %}
+              {% for list in lists %}
+                  <li class="glyphicon glyphicon-ok list-group-item"> {{ list }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sd-5">
+        <div class="row text-center">
+              Annulation Permis
+        </div>
+        <div class="row">
+          <ul class="list-group">
+              {% set lists = ['6H / 10H de conduite', 'Frais d\'inscription', 'Pochette pédagogique', 'Livret de questions orales',
+              'Forfait cours de code', '2 présentation à l\'examen de code', '1 présentation à l\'examen de conduite']
+              %}
+              {% for list in lists %}
+                  <li class="glyphicon glyphicon-ok list-group-item"> {{ list }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="text-center">
+            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+      </div>
+    </div>
 {% endblock %}
 

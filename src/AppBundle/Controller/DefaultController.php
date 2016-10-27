@@ -26,7 +26,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/permis/{type}", requirements={"type" = ".+"}, defaults={"type" = "all"}, name="permis")
+     * @Route("/permis", name="permis")
      */
     public function permisAction(Request $request)
     {
@@ -47,5 +47,13 @@ class DefaultController extends Controller
     public function contactAction(Request $request)
     {
         return $this->render("AppBundle:default:contact.html.twig");
+    }
+
+    /**
+     * @Route("/inscription", name="inscription")
+     */
+    public function inscriptionAction(Request $request)
+    {
+        return $this->render("AppBundle:default:inscription.html.twig");
     }
 }
