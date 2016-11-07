@@ -112,14 +112,37 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
 }
 
-.permis-menu {
+.permismenu {
     display:table;
     width:100%;
     margin: 0;
 }
 
-.permis-menu > li{
+.permismenu > li{
     float:none;
     display:table-cell;
     text-align:center;
+}
+
+.green {
+    color: green;
+}
+
+.googlemap {
+    width: 425px;
+    height: 350px;
+    border: 0px;
+    padding: 0px;
+}
+
+
+.line-break {
+    height: 20px;
+}
+
+@media all and (max-width: 360px)
+{
+    .line-break {
+        height: 10px;
+    }
 }

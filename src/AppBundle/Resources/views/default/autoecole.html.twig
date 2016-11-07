@@ -1,22 +1,38 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    CER Fondary-Commerce a été fondée en 1993. Avec près de 20 ans expérience de la formation à la conduite, l’auto école à su acquérir les compétences nécessaires pour former ces élèves à savoir :
-    La pédagogie
-    La sensibilisation aux risques au volant
-    L’enseignement des bonnes pratiques préconisées par la sécurité routière.
-    L’optimisation des méthodes d’enseignement de la conduite en fonction du candidat
-    L’utilisation des moyens pédagogiques et techniques les plus performants.
-    CER Fondary-Commerce est membre du groupement des auto écoles CER Association.
-    fondé en 1983 compte aujourd’hui 500 adhérents.
-    Leur objectif est de s’unir pour mieux servir les intérêts des élèves.
 
-    CER Association a été créée en 1983 par des professionnels de l’enseignement de la conduite et compte à présent plus de 500 membres.
-    L’objectif de CER Association est de s'unir pour mieux servir les intérêts des élèves.
-    Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons une flotte de véhicules renouvelée chaque année.
-    Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la base de la conduite.
-    Nous avons une flotte de Peugeot 207 HDI.
+    <div class="row">
+        <div class="row-height">
+            <div class="col-lg-4 col-height col-top">
+                CER Fondary-Commerce a été fondée en 1993. Avec près de 20 ans expérience de la formation à la conduite,
+                l’auto école à su acquérir les compétences nécessaires pour former ces élèves à savoir :
 
+                <ul>
+                    {% set lists = ['La pédagogie', 'La sensibilisation aux risques au volant', 'L’enseignement des bonnes pratiques préconisées par la sécurité routière.',
+                    'L’optimisation des méthodes d’enseignement de la conduite en fonction du candidat', 'L\’utilisation des moyens pédagogiques et techniques les plus performants.']
+                    %}
+                    {% for list in lists %}
+                        <li class="list-group-item"><span class="glyphicon glyphicon-chevron-right green"></span> {{ list }}</li>
+                    {% endfor %}
+                </ul>
 
+                <div class="visible-lg">
+                    CER Fondary-Commerce est membre du groupement des auto écoles CER Association.
+                    fondé en 1983 compte aujourd’hui 500 adhérents.
+                    Leur objectif est de s’unir pour mieux servir les intérêts des élèves.
+
+                    Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons une
+                    flotte de véhicules renouvelée chaque année.
+                    Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la base
+                    de la conduite.
+                    Nous avons une flotte de Peugeot 207 HDI.
+                </div>
+             </div>
+            <div>
+              <iframe class="googlemap" src="http://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=CER+fondary-commerce+46+rue+du+Fondary+75015+PARIS&amp;aq=&amp;sll=48.84718,2.295381&amp;sspn=0.00639,0.010139&amp;vpsrc=6&amp;g=46+Rue+Fondary,+75015+Paris,+%C3%8Ele-de-France&amp;ie=UTF8&amp;hq=CER+fondary-commerce+46+rue+du+Fondary+75015+PARIS&amp;hnear=&amp;radius=15000&amp;t=m&amp;ll=48.851444,2.296228&amp;spn=0.009884,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
