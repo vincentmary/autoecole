@@ -2,9 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller
 {
@@ -46,7 +50,18 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
-        return $this->render("AppBundle:default:contact.html.twig");
+        $contact = new ContactType();
+
+        $form = $this->createForm(ContactType::class, $contact);
+
+        if ($form->handleRequest($request)->isValid()) {
+          var_dump($contact);
+          die;
+        }
+
+        return $this->render("AppBundle:default:contact.html.twig", array(
+            'form' => $form->createView()
+          ));
     }
 
     /**
