@@ -5,8 +5,9 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: null
-    mailer_transport: smtp
+    mailer_transport: mail
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
     secret: 40d0aad2673bbb5bf00b49983b81c0de1a0630d2
+    contact_mail: test@yopmail.com

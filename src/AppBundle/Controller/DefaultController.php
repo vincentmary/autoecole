@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+
 class DefaultController extends Controller
 {
     /**
@@ -55,8 +56,16 @@ class DefaultController extends Controller
         $form = $this->createForm(ContactType::class, $contact);
 
         if ($form->handleRequest($request)->isValid()) {
-          var_dump($contact);
-          die;
+          $message = \Swift_Message::newInstance()
+          ->setSubject($contact->getType())
+          ->setFrom($contact->getMail())
+          ->setTo('testvmary@yopmail.com')
+          ->setBody(
+              $contact->getMessage(),
+              'text/html'
+            );
+
+          $this->get('mailer')->send($message);
         }
 
         return $this->render("AppBundle:default:contact.html.twig", array(
