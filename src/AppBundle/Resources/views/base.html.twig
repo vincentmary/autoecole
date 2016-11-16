@@ -23,6 +23,13 @@
     </div>
 </head>
 <body>
+{# On affiche tous les messages flash #}
+{% for label, messages in app.session.flashbag.all %}
+    {% for message in messages %}
+      <div class="alert alert-{{ label }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+
 <span class="line-break"> &nbsp; </span>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">

@@ -31,7 +31,7 @@
                 {% endfor %}
             </ul>
             <div class="text-center">
-                <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+                <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-b'}) }}">Plus d'informations</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
           </ul>
         </div>
         <div class="text-center">
-            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+            <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-aac'}) }}">Plus d'informations</a>
         </div>
     </div>
     <div id="permis-etranger" class="container hidden permis-liste">
@@ -63,7 +63,7 @@
         </ul>
       </div>
       <div class="text-center">
-            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+            <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-etranger'}) }}">Plus d'informations</a>
       </div>
     </div>
     <div id="annulation-permis" class="container hidden permis-liste">
@@ -98,7 +98,7 @@
         </div>
       </div>
       <div class="text-center">
-            <a class="moreinfos" href="{{ path('contact') }}">Plus d'informations</a>
+            <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-annulation'}) }}">Plus d'informations</a>
       </div>
     </div>
 {% endblock %}
