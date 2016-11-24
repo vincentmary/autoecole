@@ -11,6 +11,7 @@
     {# On charge le CSS de bootstrap depuis le site directement #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <div id="header">
@@ -28,8 +29,8 @@
 {% endfor %}
 
 <span class="line-break"> &nbsp; </span>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid" align="center">
+<nav class="navbar navbar-default" transparency role="navigation">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
