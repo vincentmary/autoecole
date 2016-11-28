@@ -97,4 +97,12 @@ class DefaultController extends Controller
     {
         return $this->render("AppBundle:default:inscription.html.twig");
     }
+
+  /**
+   * @Route("/coordonnees", name="coordonnees")
+   */
+  public function coordonnesAction(Request $request)
+  {
+    return $this->render("AppBundle:default:coordonnees.html.twig");
+  }
 }

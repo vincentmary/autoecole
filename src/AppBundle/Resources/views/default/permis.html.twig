@@ -1,10 +1,16 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav permis-menu">
-              <li class="active permis-menu-item">
+    <nav class="dropdown">
+        <div id="offre" class="container">
+            <span class="offre-title text-center">Permis B</span>
+            <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Offres
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu permis-menu" aria-labbelledby="dropdownMenu1">
+              <li class="permis-menu-item">
                 <a href="#permis-b" class="text-center">Permis B</a>
               </li>
               <li class="permis-menu-item">
@@ -17,6 +23,7 @@
                 <a href="#annulation-permis" class="text-center">Annulation permis</a>
               </li>
             </ul>
+            </div>
         </div>
     </nav>
     <div id="permis-b" class="container permis-liste">
@@ -98,7 +105,7 @@
         </div>
       </div>
       <div class="text-center">
-            <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-annulation'}) }}">Plus d'informations</a>
+          <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-annulation'}) }}">Plus d'informations</a>
       </div>
     </div>
 {% endblock %}
