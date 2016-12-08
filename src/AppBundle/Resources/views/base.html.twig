@@ -42,13 +42,13 @@
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav">
                 <li {% if (app.request.get('_route') in ['autoecole', 'homepage']) %}class="active"{% endif %}><a href="{{  path('autoecole') }}">L'auto-école</a></li>
-                <li {% if (app.request.get('_route') starts with 'coordonnees') %}class="active"{% endif %}><a href="{{  path('coordonnees') }}">Coordonnées</a></li>
                 <li {% if app.request.get('_route') starts with 'permis' %}class="active"{% endif %} class="dropdown">
                     <a href="{{  path('permis') }}" >Permis </a>
                 </li>
                 <li {% if app.request.get('_route') starts with 'financement' %}class="active"{% endif %}><a href="{{  path('financement') }}">Financements</a></li>
                 <li {% if app.request.get('_route') starts with 'inscription' %}class="active"{% endif %}><a href="{{  path('inscription') }}">Inscription</a></li>
-                <li {% if app.request.get('_route') starts with 'contact' %}class="active"{% endif %}><a href="{{  path('contact') }}">Contact</a></li>
+                <li {% if (app.request.get('_route') starts with 'coordonnees') %}class="active"{% endif %}><a href="{{  path('coordonnees') }}">Coordonnées</a></li>
+                <li {% if app.request.get('_route') starts with 'contact' %}class="active"{% endif %}><a href="{{  path('contact') }}">Nous Contacter</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

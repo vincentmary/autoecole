@@ -4,5 +4,4 @@ $(".permis-menu-item").click(function() {
    $(div).addClass('show');
    $(div).removeClass('hidden');
    $(".offre-title").text($(this).text());
-   $(window).scrollTo
 });
