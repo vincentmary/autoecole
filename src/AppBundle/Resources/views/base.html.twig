@@ -22,12 +22,6 @@
 </head>
 <body>
 {# On affiche tous les messages flash #}
-{% for label, messages in app.session.flashbag.all %}
-    {% for message in messages %}
-      <div class="alert alert-{{ label }}">{{ message }}</div>
-    {% endfor %}
-{% endfor %}
-
 <span class="line-break"> &nbsp; </span>
 <nav class="navbar navbar-default" transparency role="navigation">
     <div class="container">
@@ -53,7 +47,14 @@
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
+{% for label, messages in app.session.flashbag.all %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+<div class="container">
 {% block body %}{% endblock %}
+</div>
 {% block javascripts %}
     <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
