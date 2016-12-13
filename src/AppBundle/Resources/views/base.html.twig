@@ -15,13 +15,12 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <div id="header">
-        <div class="visible-lg visible-md visible-xs visible-sm" align="center">
+        <div align="center">
             <img src="{{ asset('bannier_autoecole.png') }}" class="img-responsive img-rounded" alt="cer auto ecole fondary"/>
         </div>
     </div>
 </head>
 <body>
-{# On affiche tous les messages flash #}
 <span class="line-break"> &nbsp; </span>
 <nav class="navbar navbar-default" transparency role="navigation">
     <div class="container">
@@ -43,10 +42,12 @@
                 <li {% if app.request.get('_route') starts with 'inscription' %}class="active"{% endif %}><a href="{{  path('inscription') }}">Inscription</a></li>
                 <li {% if (app.request.get('_route') starts with 'coordonnees') %}class="active"{% endif %}><a href="{{  path('coordonnees') }}">Coordonnées</a></li>
                 <li {% if app.request.get('_route') starts with 'contact' %}class="active"{% endif %}><a href="{{  path('contact') }}">Nous Contacter</a></li>
+                <li class="visible-xs"><a href="http://cer-fondarycommerce.packweb3.com">Accès PackWeb</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
+{# On affiche tous les messages flash #}
 {% for label, messages in app.session.flashbag.all %}
     {% for message in messages %}
         <div class="alert alert-{{ label }}">{{ message }}</div>

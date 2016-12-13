@@ -10,4 +10,3 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 40d0aad2673bbb5bf00b49983b81c0de1a0630d2
-    contact_email: autoecolefondary@yopmail.com

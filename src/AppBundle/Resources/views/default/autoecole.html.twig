@@ -8,31 +8,43 @@
                 CER Fondary-Commerce a été fondée en 1993. Avec près de 20 ans expérience de la formation à la conduite,
                 l’auto école à su acquérir les compétences nécessaires pour former ces élèves à savoir :
 
-                <ul>
+                <ul class="list-group">
                     {% set lists = ['La pédagogie', 'La sensibilisation aux risques au volant', 'L’enseignement des bonnes pratiques préconisées par la sécurité routière.',
-                    'L’optimisation des méthodes d’enseignement de la conduite en fonction du candidat', 'L\’utilisation des moyens pédagogiques et techniques les plus performants.']
-                    %}
+                    'L’optimisation des méthodes d’enseignement de la conduite en fonction du candidat', 'L\’utilisation des moyens pédagogiques et techniques les plus performants.'] %}
                     {% for list in lists %}
-                        <li class="list-group-item"><span class="glyphicon glyphicon-chevron-right green"></span> {{ list }}</li>
+                        <li class="list-group-item"><span
+                                    class="glyphicon glyphicon-chevron-right green"></span> {{ list }}</li>
                     {% endfor %}
                 </ul>
-             </div>
-            <div>
-              <div class="visible-lg">
+            </div>
+            <div class="hidden-xs">
                 CER Fondary-Commerce est membre du groupement des auto écoles CER Association.
                 fondé en 1983 compte aujourd’hui 500 adhérents.
                 Leur objectif est de s’unir pour mieux servir les intérêts des élèves.
 
-                Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons une
+                Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons
+                une
                 flotte de véhicules renouvelée chaque année.
-                Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la base
+                Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la
+                base
                 de la conduite.
-              </div>
+            </div>
+            <div class="hidden-xs">
+                <div class="h3">
+                    Apprendre le code chez soi <img src="{{ asset('working_home.png') }}"/>
+                </div>
+                Pris par vos activités professionnelles ou par vos cours à la fac, révisez votre code de la route par
+                internet.
+                Demandez votre accès Packweb2 à l'auto-école. Packweb2 vous permet de suivre des cours de code, de faire
+                des tests et des simulations d'examen.
+                <a href="http://cer-fondarycommerce.packweb3.com"><img src="{{ asset('packweb.png') }}"
+                                                                       class="img-responsive img-rounded"
+                                                                       alt="packweb"/></a>
             </div>
 
 
-            </div>
         </div>
+    </div>
     </div>
 {% endblock %}
 
