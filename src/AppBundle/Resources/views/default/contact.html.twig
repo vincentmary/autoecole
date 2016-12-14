@@ -16,6 +16,9 @@
         {{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
       </div>
       <div class="col-xs-10 form-group">
+        {{ form_row(form.captcha, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="col-xs-10 form-group">
         {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
       </div>
     {{ form_end(form) }}
