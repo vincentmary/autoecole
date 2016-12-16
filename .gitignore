@@ -4,3 +4,4 @@ app/config/config_prod.yml
 app.config/parameters.yml
 web/bundles/
 .idea/
+composer.phar
