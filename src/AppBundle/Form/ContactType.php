@@ -30,6 +30,7 @@ class ContactType extends AbstractType
         ))
       ->add('mail', EmailType::class, array(
           'required' => TRUE,
+          'label' => 'Courriel (email)'
         ))
       ->add('message', TextAreaType::class, array(
           'required' => TRUE

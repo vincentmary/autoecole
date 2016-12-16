@@ -79,7 +79,7 @@ class DefaultController extends Controller
           if ($this->get('mailer')->send($message))
           {
             $session = $request->getSession();
-            $session->getFlashBag()->add('success', 'Votre mail a bien été envoyé. Nous vous recontacterons le plus vite possible');
+            $session->getFlashBag()->add('success', 'Votre demande a bien été prise en compte. Une réponse vous sera apportée dans les meilleurs délais.');
 
             return new RedirectResponse($this->get('router')->generate('homepage'));
           }
