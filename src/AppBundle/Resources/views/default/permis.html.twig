@@ -29,9 +29,8 @@
     <div id="permis-b" class="container permis-liste">
         <div>
             <ul class="list-group">
-                {% set lists = ['20H / 26H / 30H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
-                'Livret de questions orales', 'Livret de questions orales', 'Une heure d\'évaluation de départ'
-                ,'Forfait cours de code', '2 présentations à l\'examen de conduite réelles', '1 présentation à l\'examen de la conduite']
+                {% set lists = ['20H / 26H / 30H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (ficher de suivi / Livre de code / Livret de questions orales)'
+                ,'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois) ', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', ' 1 accompagnement à l\'examen de la conduite']
                 %}
                 {% for list in lists %}
                      <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
@@ -45,9 +44,9 @@
     <div id="permis-aac" class="container hidden permis-liste">
         <div>
           <ul class="list-group">
-            {% set lists = ['20H / 26H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
-              'Livret de questions orales', 'Livret de questions orales', 'Une heure d\'évaluation de départ'
-              ,'Forfait cours de code', '2 présentations à l\'examen de conduite réelles', '1 présentation à l\'examen de la conduite']
+            {% set lists = ['20H / 26H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription'
+              ,'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales / Livret accompagnateur)', 'Cours de code en salle (6 mois)'
+              ,'Packweb - code sur internet (3 mois)', ' 1 accompagnement à l\'examen théorique (+30€ Redevance ETG) ', '1 accompagnement à l\'examen de la conduite']
             %}
             {% for list in lists %}
                 <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
@@ -61,8 +60,8 @@
     <div id="permis-etranger" class="container hidden permis-liste">
       <div>
         <ul class="list-group">
-          {% set lists = ['15H / 20H de conduite', 'Frais d\'inscription', 'Pochette pédagogique',
-          'Forfait cours de code', '1 présentation à l\'examen de code', '1 présentation à l\'examen de conduite']
+          {% set lists = ['15H / 20H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+          'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite']
           %}
           {% for list in lists %}
                 <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
@@ -80,8 +79,8 @@
         </div>
         <div class="row">
           <ul class="list-group">
-              {% set lists = ['Frais d\'inscription', 'Pochette pédagogique',
-              'Forfait cours de code', '1 présentation à l\'examen de code']
+              {% set lists = ['Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+              'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)']
               %}
               {% for list in lists %}
                   <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
@@ -95,8 +94,8 @@
         </div>
         <div class="row">
           <ul class="list-group">
-              {% set lists = ['6H / 10H de conduite', 'Frais d\'inscription', 'Pochette pédagogique', 'Livret de questions orales',
-              'Forfait cours de code', '2 présentation à l\'examen de code', '1 présentation à l\'examen de conduite']
+              {% set lists = ['10H / 15H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+              'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite']
               %}
               {% for list in lists %}
                   <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
