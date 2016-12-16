@@ -13,86 +13,112 @@ use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class ContactType extends AbstractType
 {
-  protected $name;
+    protected $name;
 
-  protected $mail;
+    protected $mail;
 
-  protected $type;
+    protected $type;
 
-  protected $message;
+    protected $tel;
 
-  public function buildForm(FormBuilderInterface $builder, array $options)
-  {
-    $builder
-      ->add('name', TextType::class, array(
-          'required' => TRUE,
-          'label' => 'Nom'
-        ))
-      ->add('mail', EmailType::class, array(
-          'required' => TRUE,
-          'label' => 'Courriel (email)'
-        ))
-      ->add('message', TextAreaType::class, array(
-          'required' => TRUE
-        ))
-      ->add('save', SubmitType::class, array('label' => 'Envoyer'))
-      ->add('captcha', CaptchaType::class)
-      ->getForm();
-  }
+    protected $message;
 
-  /**
-   * @param string $message
-   */
-  public function setMessage($message) {
-    $this->message = $message;
-  }
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('name', TextType::class, array(
+                'required' => TRUE,
+            ))
+            ->add('mail', EmailType::class, array(
+                'required' => TRUE,
+            ))
+            ->add('tel', TextType::class)
+            ->add('message', TextAreaType::class, array(
+                'required' => TRUE
+            ))
+            ->add('save', SubmitType::class)
+            ->add('captcha', CaptchaType::class)
+            ->getForm();
+    }
 
-  /**
-   * @return string
-   */
-  public function getMessage() {
-    return $this->message;
-  }
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 
-  /**
-   * @param string $type
-   */
-  public function setType($type) {
-    $this->type = $type;
-  }
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
 
-  /**
-   * @return string
-   */
-  public function getType() {
-    return $this->type;
-  }
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 
-  /**
-   * @param string $mail
-   */
-  public function setMail($mail) {
-    $this->mail = $mail;
-  }
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
-  /**
-   * @return string
-   */
-  public function getMail() {
-    return $this->mail;
-  }
+    /**
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
 
-  /**
-   * @param string $name
-   */
-  public function setName($name) {
-    $this->name = $name;
-  }
+    /**
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
 
-  /**
-   * @return string
-   */
-  public function getName() {
-    return $this->name;
-  }
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * @param mixed $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
 }

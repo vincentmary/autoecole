@@ -2,26 +2,33 @@
 
 {% block body %}
     <div class="well row">
-      <div class="text-center h3">
-        Formulaire de contact
-      </div>
-    {{ form_start(form) }}
-      <div class="col-xs-10 form-group">
-        {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
-      </div>
-      <div class="col-xs-10 form-group">
-        {{ form_row(form.mail, {'attr': {'class': 'form-control'}}) }}
-      </div>
-      <div class="col-xs-10 form-group">
-        {{ form_row(form.message, {'attr': {'class': 'form-control','rows':'5', 'placeholder':'Votre message à l\'autoécole'}}) }}
-      </div>
-      <div class="col-xs-10 form-group">
-        {{ form_row(form.captcha, {'attr': {'class': 'form-control'}}) }}
-      </div>
-      <div class="col-xs-10 form-group">
-        {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-      </div>
-    {{ form_end(form) }}
+        <div class="text-center h3">
+            Formulaire de contact
+        </div>
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_row(form.name, {'attr': {'class': 'form-control'}, 'label': 'Nom, prénom'}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.mail, {'attr': {'class': 'form-control'}, 'label': 'Courriel (email)'}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.mail, {'attr': {'type': 'tel', 'class': 'form-control'}, 'label': 'Courriel (email)'}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.tel, {'attr': {'class': 'form-control'}, 'label': 'Téléphone', 'pattern': '[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}'}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.message, {'attr': {'class': 'form-control','rows':'5', 'placeholder':'Votre message à l\'autoécole' }}
+            ) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.captcha, {'attr': {'class': 'form-control' }}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.save, {'attr': {'class': 'btn btn-primary', 'label': 'Envoyer' }}) }}
+        </div>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
 
