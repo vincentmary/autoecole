@@ -17,7 +17,7 @@ class ContactType extends AbstractType
 
     protected $mail;
 
-    protected $type;
+    protected $type = NULL;
 
     protected $tel;
 
@@ -32,12 +32,17 @@ class ContactType extends AbstractType
             ->add('mail', EmailType::class, array(
                 'required' => TRUE,
             ))
-            ->add('tel', TextType::class)
+            ->add('tel', TextType::class, array(
+                'required' => FALSE,
+            ))
             ->add('message', TextAreaType::class, array(
                 'required' => TRUE
             ))
             ->add('save', SubmitType::class)
-            ->add('captcha', CaptchaType::class)
+            ->add('captcha', CaptchaType::class, array(
+                'width' => 240,
+                'height' => 80,
+            ))
             ->getForm();
     }
 

@@ -67,8 +67,18 @@ class DefaultController extends Controller
 
         if ($form->handleRequest($request)->isValid())
         {
+          $subject = NULL;
+          if (! is_null($contact->getType())) {
+            $subject = '[' . $contact->getType() . '] ';
+          }
+          $subject .= 'Message de ' . $contact->getName();
+
+          //add phone if set in message
+          $message = $contact->getTel() ? ' Téléphone ' . $contact->getTel() . '<br/><br/>' : '';
+          $message .= $contact->getMessage();
+          $contact->setMessage($message);
           $message = \Swift_Message::newInstance()
-          ->setSubject($contact->getType())
+          ->setSubject($subject)
           ->setFrom($contact->getMail())
           ->setTo($this->container->getParameter('contact_email'))
           ->setBody(
