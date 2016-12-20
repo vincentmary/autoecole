@@ -3,46 +3,81 @@
 {% block body %}
 
     <div class="container">
-        <div>
-            <div class="col-lg-4 col-height col-top">
-                CER Fondary-Commerce a été fondée en 1993. Avec près de 20 ans expérience de la formation à la conduite,
-                l’auto école à su acquérir les compétences nécessaires pour former ces élèves à savoir :
+        <div id="myCarousel" class="carousel slide container" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
 
-                <ul class="list-group">
-                    {% set lists = ['La pédagogie', 'La sensibilisation aux risques au volant', 'L’enseignement des bonnes pratiques préconisées par la sécurité routière.',
-                    'L’optimisation des méthodes d’enseignement de la conduite en fonction du candidat', 'L\’utilisation des moyens pédagogiques et techniques les plus performants.'] %}
-                    {% for list in lists %}
-                        <li class="list-group-item"><span
-                                    class="glyphicon glyphicon-chevron-right green"></span> {{ list }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="hidden-xs">
-                CER Fondary-Commerce est membre du groupement des auto écoles CER Association.
-                fondé en 1983 compte aujourd’hui 500 adhérents.
-                Leur objectif est de s’unir pour mieux servir les intérêts des élèves.
-
-                Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons
-                une
-                flotte de véhicules renouvelée chaque année.
-                Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la
-                base
-                de la conduite.
-            </div>
-            <div class="hidden-xs">
-                <div class="h3">
-                    Apprendre le code chez soi <img src="{{ asset('working_home.png') }}"/>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="{{  path('permis') }}">
+                      <img src="{{ asset('sliders/permis.jpg') }}" alt="Permis">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Offres du Permis</h3>
+                    </div>
                 </div>
-                Pris par vos activités professionnelles ou par vos cours à la fac, révisez votre code de la route par
-                internet.
-                Demandez votre accès Packweb2 à l'auto-école. Packweb2 vous permet de suivre des cours de code, de faire
-                des tests et des simulations d'examen.
-                <a href="http://cer-fondarycommerce.packweb3.com"><img src="{{ asset('packweb.png') }}"
-                                                                       class="img-responsive img-rounded"
-                                                                       alt="packweb"/></a>
+
+                <div class="item">
+                    <a href="{{  path('financement') }}">
+                      <img src="{{ asset('sliders/financement.jpg') }}" alt="Financement">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Financer son permis</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a href="{{  path('permis') }}">
+                      <img src="{{ asset('sliders/map.jpg') }}" alt="Coordonnées">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Nous trouver</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a href="http://cer-fondarycommerce.packweb3.com">
+                      <img src="{{ asset('sliders/work_packweb.jpg') }}" alt="Packweb">
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>Réviser son code chez soi avec PackWeb</h3>
+                    </div>
+                </div>
+
             </div>
 
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="col-lg-12 text-justify">
+            <div class="line-break"></div>
+            CER Fondary-Commerce est membre du groupement des auto écoles CER Association.
+            fondé en 1983 compte aujourd’hui 500 adhérents.
+            Leur objectif est de s’unir pour mieux servir les intérêts des élèves.
 
+            Afin de fournir les meilleures prestations dans le cadre de l’apprentissage de la conduite, nous avons une
+            flotte de véhicules renouvelée chaque année.
+            Nous fournissons ainsi les moyens techniques les plus performants pour un meilleur apprentissage de la base
+            de la conduite.
+        </div>
+        <div class="line-break"></div>
+        <div class="pull-right">
+          <a href="https://www.facebook.com/CER-Fondary-Commerce-486821644695049/?fref=ts">
+              <image class="facebook_logo img-responsive" src="{{ asset('FB144_fr_FR.png') }}"/>
+          </a>
         </div>
     </div>
     </div>
