@@ -10,17 +10,21 @@
     </div>
     <div class="line-break"></div>
     <div class="row">
-        <ul class="list-group">
-            {% set lists = ['le choix de votre formule', 'la signature du cerfa02 (formulaire d\'enregistrement préfectoral)'
-            , 'la signature du contrat de formation', 'le paiement de votre forfait'
-            ,'la signature du contrat de formation'
-            , 'le paiement de votre forfait'
-            , 'la fourniture des outils pédagogiques']
-            %}
-            {% for list in lists %}
-                <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
-            {% endfor %}
-        </ul>
+        <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Permis <b class="caret"></b></a>
+            <ul class="dropdown-menu list-group">
+                {% set lists = ['le choix de votre formule', 'la signature du cerfa02 (formulaire d\'enregistrement préfectoral)'
+                , 'la signature du contrat de formation', 'le paiement de votre forfait'
+                ,'la signature du contrat de formation'
+                , 'le paiement de votre forfait'
+                , 'la fourniture des outils pédagogiques']
+                %}
+                {% for list in lists %}
+                    <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
     </div>
    <div class="row premiere-inscription liste-inscription hidden">
         1ere inscription:

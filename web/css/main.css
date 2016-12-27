@@ -157,12 +157,12 @@ body {
 }
 
 @media (min-width: 1200px){
-    .carousel {
-        height: 600px;
-    }
 
-    .item {
-        height: 600px;
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto
     }
 }
 
