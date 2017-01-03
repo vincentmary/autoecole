@@ -166,3 +166,7 @@ body {
     }
 }
 
+.inscription-type {
+    margin-top: 0px;
+    border-top: 1px solid #0f0f0f;
+}
