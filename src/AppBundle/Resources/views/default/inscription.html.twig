@@ -23,6 +23,7 @@
         </ul>
     </div>
     <div class="line-break"></div>
+    <div class="row">Cliquer sur le type d'offre pour connaitre les documents additionnels à fournir</div>
     {% set inscription_types = [
         {"id": "premiere_inscription", "name": "1ere inscription", "list": ["1 photocopie de pièce d'identité ou carte de séjour", "4 photographies d'identité", "2 enveloppes \"prêt-à-poster\" Lettre suivie 50g"]}
        ,{"id": "permis_etranger", "name": "Permis Etranger", "list": ["Photocopie du permis étranger", "Traduction du permis"]}
@@ -38,8 +39,8 @@
    {% for inscription_type in inscription_types %}
         <div class="row inscription-type">
             <div class="h4"> {{ inscription_type.name }} <span class="glyphicon glyphicon-chevron-right green"></span>
-                <hr/>
             </div>
+            <hr/>
             <div class="inscription-list hidden">
                 <ul class="list-group">
                 {% if inscription_type.id in ["permis_etranger", "reprise_de_dossier", "aac"] %}

@@ -8,6 +8,11 @@ $(".permis-menu-item").click(function () {
 
 $(".inscription-type").click(function () {
     $(".inscription-list").addClass("hidden");
-    var element = $(this).find(".inscription-list").addClass('show');
-    $(this).find(".inscription-list").removeClass('hidden');
+    var element = $(this).find(".inscription-list")
+    if (! element.hasClass("show")) {
+        element.addClass('show');
+        element.removeClass('hidden');
+    } else {
+        element.removeClass('show');
+    }
 })
