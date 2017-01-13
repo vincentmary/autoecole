@@ -134,6 +134,10 @@ body {
     color: green;
 }
 
+.red {
+    color: #D0363C;
+}
+
 
 .line-break {
     height: 20px;
@@ -169,4 +173,12 @@ body {
 .inscription-type > hr {
     margin-top: 0px;
     border-top: 1px solid #0f0f0f;
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width : 360px) {
+    .postit {
+        height: 100px;
+        width: 100px;
+    }
 }

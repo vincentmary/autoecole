@@ -1,28 +1,25 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <div class="line-break"></div>
     <div class="row">
-        <div class="h4">Etapes de l'inscription:</div>
-        <div class="line-break"></div>
-        <span class="glyphicon glyphicon-star green"></span>Arrivée à l'autoécole 	<span class="glyphicon glyphicon-arrow-right green"></span> Une heure d'évaluation de départ avec un enseignant
-        <div class="line-break"></div>
-        <span class="glyphicon glyphicon-star green"></span>Sélection de la formule la plus adaptée selon votre niveau
-        <div class="line-break"></div>
-        <span class="glyphicon glyphicon-star green"></span>Finalisation de l'inscription
-        <div class="line-break"></div>
+        <div class="text-center">
+            <img src="{{ asset('postit/postit_arrivee.png') }}" class="postit" alt="postit_arrivee">
+            <img src="{{ asset('postit/postit_autoecole.png') }}" class="postit" alt="postit_autoecole">
+            <img src="{{ asset('postit/postit_formule.png') }}" class="postit" alt="postit_formule">
+            <img src="{{ asset('postit/postit_inscription.png') }}" class="postit" alt="postit_inscription">
+        </div>
         <ul class="list-group">
-            {% set lists = ['Choix de votre formule', 'Signature du cerfa02 (formulaire d\'enregistrement préfectoral)'
+            {% set lists = ['Signature du cerfa02 (formulaire d\'enregistrement préfectoral)'
             , 'Signature du contrat de formation'
             , 'Paiement de votre forfait'
             , 'Fourniture des outils pédagogiques']
             %}
                 {% for list in lists %}
-                    <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ list }}</li>
+                    <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> {{ list }}</li>
                 {% endfor %}
         </ul>
     </div>
-    <div class="row h4">Cliquer sur le type d'offre pour connaitre les documents additionnels à fournir</div>
+    <div class="row h4">Documents à fournir selon l'offre (cliquer sur l'offre)</div>
     {% set inscription_types = [
         {"id": "premiere_inscription", "name": "1ere inscription", "list": ["1 photocopie de pièce d'identité ou carte de séjour", "4 photographies d'identité", "2 enveloppes \"prêt-à-poster\" Lettre suivie 50g"]}
        ,{"id": "permis_etranger", "name": "Permis Etranger", "list": ["Photocopie du permis étranger", "Traduction du permis"]}
@@ -37,7 +34,7 @@
     %}
    {% for inscription_type in inscription_types %}
         <div class="row inscription-type">
-            <div class="h4"> {{ inscription_type.name }} <span class="glyphicon glyphicon-chevron-right green"></span>
+            <div class="h4"> {{ inscription_type.name }} <span class="glyphicon glyphicon-chevron-right red"></span>
             </div>
             <hr/>
             <div class="inscription-list hidden">
@@ -48,65 +45,24 @@
                 {%     set list = inscription_type.list %}
                 {% endif %}
                 {% for item in  list %}
-                    <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> {{ item }}</li>
+                    <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> {{ item }}</li>
                 {% endfor %}
                 </ul>
                 {% if inscription_type.id == 'AAC'  %}
                 <div>Pour les 15-18 ans:</div>
                     <ul class="list-group">
-                        <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> Photocopie de l'attestation de recensement</li>
-                        <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> Une autorisation parentale manuscrite</li>
-                        <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> Photocopie de la pièce d'identité du parent</li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de l'attestation de recensement</li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Une autorisation parentale manuscrite</li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de la pièce d'identité du parent</li>
                     </ul>
                 {% elseif inscription_type.id == 'premiere_inscription' %}
                 <div>Pour les 18-25 ans:</div>
                     <ul class="list-group">
-                        <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> Photocopie du certificat de participation à la JDC</li>
-                        <li class="list-group-item"><span class="glyphicon glyphicon-ok green"></span> Photocopie de l'ASSR2 ou l'ASR pour les candidats nés après le 01/01/1988</li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie du certificat de participation à la JDC</li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de l'ASSR2 ou l'ASR pour les candidats nés après le 01/01/1988</li>
                     </ul>
                 {% endif %}
             </div>
         </div>
     {% endfor %}
-    <!--
-
-     set premiere_inscription_liste = ['1 photocopie de pièce d\'identité ou carte de séjour'
-    , '4 photographies d\'identité'
-    , '2 enveloppes "prêt-à-poster Lettre suivie 50g']
-
-
-
-    Documents à fournir
-
-
-    1ere inscription:
-
-    - 1 photocopie de
-    - 4 photographies d'identité
-    - 2 enveloppes "prêt-à-poster Lettre suivie 50g"
-
-    pour les 15-18 ans:
-    - Photocopie de l'attestation de recensement
-    - Une autorisation parentale manuscrite
-    - Photocopie de la pièce d'identité du parent
-
-    Pour les 18-25 ans:
-    - Photocopie du certificat de participation à la JDC
-    - Photocopie de l'ASSR2 ou l'ASR pour les candidats nés après le 01/01/1988
-
-    Permis Etranger:
-
-    En plus des documents ci-dessus:
-    - Photocopie du permis
-    - Traduction du permis
-
-    Reprise de dossier:
-    - Fournir le cerfa02 enregistré en préfecture
-
-
-    AAC:
-    Idem que 1ere inscription:
-    - Photocopie du permis des accompagnateurs
-    - Photocopie de la pièce d'identité des accompagnateurs
-    ---!>
 {% endblock %}
