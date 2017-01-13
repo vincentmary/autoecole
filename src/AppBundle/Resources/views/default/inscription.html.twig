@@ -26,7 +26,7 @@
        ,{"id": "reprise_de_dossier", "name": "Reprise de dossier", "list": ["Fournir le cerfa02 enregistré en préfecture"]}
        ,{"id": "aac", "name": "AAC", "list": ["Photocopie du permis des accompagnateurs"
                                               , "Photocopie de la pièce d'identité des accompagnateurs"
-                                              , "Photocopie de l'attestation de recensement"
+                                              , "Photocopie de l'attestation de recensement ou attestation de participation à la JDC"
                                               , "Une autorisation parentale manuscrite"
                                              ]
         }
@@ -48,14 +48,7 @@
                     <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> {{ item }}</li>
                 {% endfor %}
                 </ul>
-                {% if inscription_type.id == 'AAC'  %}
-                <div>Pour les 15-18 ans:</div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de l'attestation de recensement</li>
-                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Une autorisation parentale manuscrite</li>
-                        <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de la pièce d'identité du parent</li>
-                    </ul>
-                {% elseif inscription_type.id == 'premiere_inscription' %}
+                {% if inscription_type.id == 'premiere_inscription' %}
                 <div>Pour les 18-25 ans:</div>
                     <ul class="list-group">
                         <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie du certificat de participation à la JDC</li>
