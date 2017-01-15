@@ -3,6 +3,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Form\Type\TelType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +33,7 @@ class ContactType extends AbstractType
             ->add('mail', EmailType::class, array(
                 'required' => TRUE,
             ))
-            ->add('tel', TextType::class, array(
+            ->add('tel', TelType::class, array(
                 'required' => FALSE,
             ))
             ->add('message', TextAreaType::class, array(

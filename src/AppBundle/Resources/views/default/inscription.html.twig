@@ -1,7 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <div class="row">
+    <div class="row text-center">
         <div class="text-center">
             <img src="{{ asset('postit/postit_arrivee.png') }}" class="postit" alt="postit_arrivee">
             <img src="{{ asset('postit/postit_autoecole.png') }}" class="postit" alt="postit_autoecole">
@@ -55,6 +55,9 @@
                         <li class="list-group-item"><span class="glyphicon glyphicon-check red"></span> Photocopie de l'ASSR2 ou l'ASR pour les candidats nés après le 01/01/1988</li>
                     </ul>
                 {% endif %}
+                <div class="row text-center">
+                    <a class="moreinfos" href="{{ path('contact', {'type': inscription_type.id }) }}">Plus d'informations</a>
+                </div>
             </div>
         </div>
     {% endfor %}

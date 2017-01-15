@@ -157,7 +157,7 @@ body {
 
 
 .carousel-caption {
-    color: #D0363C;
+    color: #00d020;
 }
 
 @media (min-width: 1200px){
@@ -178,7 +178,6 @@ body {
 /* Smartphones (portrait) */
 @media only screen and (max-width : 360px) {
     .postit {
-        height: 100px;
-        width: 100px;
+        width: 80px;
     }
 }
