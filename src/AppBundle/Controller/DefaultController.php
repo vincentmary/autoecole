@@ -79,7 +79,6 @@ class DefaultController extends Controller
           $message = \Swift_Message::newInstance()
           ->setSubject($subject)
           ->setFrom($contact->getMail())
-          ->setTo($this->container->getParameter('contact_email'))
           ->setBody(
               $contact->getMessage(),
               'text/html'

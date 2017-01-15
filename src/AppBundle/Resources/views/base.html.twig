@@ -16,7 +16,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicons/favicon.ico') }}" />
     <div id="header">
         <div align="center">
-            <img src="{{ asset('bannier_autoecole.png') }}" class="img-responsive img-rounded" alt="cer auto ecole fondary"/>
+            <a href="{{  path('autoecole') }}">
+                <img src="{{ asset('bannier_autoecole.png') }}" class="img-responsive img-rounded" alt="cer auto ecole fondary"/>
+            </a>
         </div>
     </div>
 </head>
@@ -50,7 +52,7 @@
 {# On affiche tous les messages flash #}
 {% for label, messages in app.session.flashbag.all %}
     {% for message in messages %}
-        <div class="alert alert-{{ label }}">{{ message }}</div>
+        <div class="text-center alert alert-{{ label }}">{{ message }}</div>
     {% endfor %}
 {% endfor %}
 <div class="container">
