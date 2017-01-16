@@ -76,15 +76,16 @@ class DefaultController extends Controller
           $message = $contact->getTel() ? ' Téléphone ' . $contact->getTel() . '<br/><br/>' : '';
           $message .= $contact->getMessage();
           $contact->setMessage($message);
-          $message = \Swift_Message::newInstance()
-          ->setSubject($subject)
-          ->setFrom($contact->getMail())
-          ->setBody(
-              $contact->getMessage(),
-              'text/html'
-            );
 
-          if ($this->get('mailer')->send($message))
+          $headers = "From: <" . $contact->getMail() . ">\r\n".
+            "MIME-Version: 1.0" . "\r\n" .
+            "Content-type: text/html; charset=UTF-8" . "\r\n";
+
+
+            if (mail($this->container->getParameter('mailer_delivery_adress')
+                   , $subject
+                   , $message
+                   , $headers))
           {
             $session = $request->getSession();
             $session->getFlashBag()->add('success', 'Votre demande a bien été prise en compte. Une réponse vous sera apportée dans les meilleurs délais.');
