@@ -77,16 +77,13 @@ class DefaultController extends Controller
           $message .= $contact->getMessage();
           $contact->setMessage($message);
 
-          $message = \Swift_Message::newInstance()
-          ->setSubject($subject)
-          ->setFrom($contact->getMail())
-          ->setTo($this->container->getParameter('mailer_delivery_adress'))
-          ->setBody(
-              $contact->getMessage(),
-              'text/html'
-            );
+          $headers = "From: " . $contact->getMail() . " \r\n".
+              "Reply-To: " . $contact->getMail() . "\r\n".
+              "MIME-Version: 1.0" . "\r\n" .
+              "Content-type: text/html; charset=UTF-8" . "\r\n".
+              "X-Mailer: PHP/" . phpversion();
 
-          if ($this->get('mailer')->send($message))
+          if (mail($this->container->getParameter('mailer_delivery_adress'), $subject, $contact->getMessage(), $headers) != FALSE)
           {
             $session = $request->getSession();
             $session->getFlashBag()->add('success', 'Votre demande a bien été prise en compte. Une réponse vous sera apportée dans les meilleurs délais.');
