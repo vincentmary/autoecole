@@ -70,14 +70,14 @@ class DefaultController extends Controller
           if (! is_null($contact->getType())) {
             $subject = '[' . $contact->getType() . '] ';
           }
-          $subject .= 'Message de ' . $contact->getName();
+          $subject .= 'Message de ' . $contact->getName() . ' ' . $contact->getMail();
 
           //add phone if set in message
           $message = $contact->getTel() ? ' Téléphone ' . $contact->getTel() . '<br/><br/>' : '';
           $message .= $contact->getMessage();
           $contact->setMessage($message);
 
-          $headers = "From: " . $contact->getMail() . " \r\n".
+          $headers = "From: " . $this->container->getParameter('mailer_sender') . " \r\n".
               "Reply-To: " . $contact->getMail() . "\r\n".
               "MIME-Version: 1.0" . "\r\n" .
               "Content-type: text/html; charset=UTF-8" . "\r\n".
