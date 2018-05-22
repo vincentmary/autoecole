@@ -1,6 +1,7 @@
 vendor/
 var/
 app/config/config_prod.yml
+app/bootstrap.php.cache
 app/config/parameters.yml
 web/bundles/
 .idea/
