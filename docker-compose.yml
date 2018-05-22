@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    nginx:
+        build: docker/nginx
+        restart: always
+        hostname: autoecole.dev
+        container_name: nginx_autoecole
+        links:
+            - php
+        ports:
+            - 5001:80
+        volumes:
+            - $PWD:/srv/www/autoecole
+
+    php:
+        build: docker/php
+        restart: always
+        container_name: php_autoecole
+        ports:
+            - 9000:9000
+        volumes:
+            - $PWD:/srv/www/autoecole
