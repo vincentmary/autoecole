@@ -13,6 +13,22 @@ use AppBundle\Form\ContactType;
 
 class Mailer
 {
+    /**
+     * @var String The sender mail
+     */
+    private $mailerSender;
+
+    /**
+     * @var String Delivery Address
+     */
+    private $mailerDeliveryAddress;
+
+    public function __construct($mailerSender, $mailerDeliveryAddress)
+    {
+        $this->mailerSender = $mailerSender;
+        $this->mailerDeliveryAddress = $mailerDeliveryAddress;
+    }
+
     public function send(ContactType $contact)
     {
         $subject = NULL;
@@ -26,13 +42,13 @@ class Mailer
         $message .= $contact->getMessage();
         $contact->setMessage($message);
 
-        $headers = "From: " . getenv('MAILER_SENDER') . " \r\n".
+        $headers = "From: " . $this->mailerSender . " \r\n".
             "Reply-To: " . $contact->getMail() . "\r\n".
             "MIME-Version: 1.0" . "\r\n" .
             "Content-type: text/html; charset=UTF-8" . "\r\n".
             "X-Mailer: PHP/" . phpversion();
 
-        return mail(getenv('MAILER_DELIVERY_ADRESS'), $subject, $contact->getMessage(), $headers);
+        return mail($this->mailerDeliveryAddress, $subject, $contact->getMessage(), $headers);
     }
 
 }
