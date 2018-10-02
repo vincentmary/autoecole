@@ -4,13 +4,16 @@
 namespace AppBundle\Form;
 
 use AppBundle\Form\Type\TelType;
+use http\Env\Request;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Gregwar\CaptchaBundle\Type\CaptchaType;
+use AppBundle\Validator\GoogleCaptchaValidator;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class ContactType extends AbstractType
 {
@@ -24,8 +27,21 @@ class ContactType extends AbstractType
 
     protected $message;
 
+    protected $requestStack;
+
+    protected $googleSecretKey;
+
+    public function __construct($googleSecretKey, RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+        $this->googleSecretKey = $googleSecretKey;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $validator = new GoogleCaptchaValidator($this->googleSecretKey, $this->requestStack);
+        $builder->addEventListener(FormEvents::POST_SUBMIT , array($validator, 'validate'));
+
         $builder
             ->add('name', TextType::class, array(
                 'required' => TRUE,
@@ -40,15 +56,6 @@ class ContactType extends AbstractType
                 'required' => TRUE
             ))
             ->add('save', SubmitType::class)
-            ->add('captcha', CaptchaType::class, array(
-                'width' => 240,
-                'height' => 80,
-                'text_color' => array(
-                    0,
-                    0,
-                    0
-                )
-            ))
             ->getForm();
     }
 

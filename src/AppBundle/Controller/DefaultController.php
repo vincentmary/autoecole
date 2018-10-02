@@ -46,16 +46,17 @@ class DefaultController extends Controller
     /**
      * @Route("/contact", name="contact")
      */
-    public function contactAction(Request $request, Mailer $mailer)
+    public function contactAction(Request $request, Mailer $mailer, ContactType $contact)
     {
-        $contact = new ContactType();
 
         isset($_GET['type']) ? $contact->setType($_GET['type']) : $contact->setType('Default');
 
         $form = $this->createForm(ContactType::class,
             $contact);
 
-        if ($form->handleRequest($request)->isValid() && false !== $mailer->send($contact)) {
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid() && false !== $mailer->send($contact)) {
             $session = $request->getSession();
             $session->getFlashBag()->add('success',
                 'Votre demande a bien été prise en compte. Une réponse vous sera apportée dans les meilleurs délais.');

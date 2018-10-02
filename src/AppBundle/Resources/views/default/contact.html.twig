@@ -20,7 +20,7 @@
             ) }}
         </div>
         <div class="form-group">
-            {{ form_row(form.captcha, {'attr': {'class': 'form-control' }, 'label': 'Entrer les lettres contenues dans l\'image'}) }}
+            <div class="g-recaptcha" data-sitekey="6LeDKHMUAAAAALW1wRGuwkOgDtQJ6oJyysG2ji_E"></div>
         </div>
         <div class="form-group">
             {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': 'Envoyer' }) }}
