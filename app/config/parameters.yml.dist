@@ -9,7 +9,9 @@ parameters:
     mailer_user: ~
     mailer_password: ~
     mailer_transport: mail
-    mailer_delivery_adress: autoecolefondary@yopmail.com
+    mailer_delivery_address: autoecolefondary@yopmail.com
     mailer_sender: CER Fondary Commerce <postmaster@yopmail.com>
 
+    google_captcha_secret_key: SECRETKEY
     secret: 40d0aad2673bbb5bf00b49983b81c0de1a0630d2
+
