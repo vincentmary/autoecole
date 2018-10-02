@@ -71,5 +71,4 @@ swiftmailer:
     disable_delivery: false
     spool: { type: memory }
 
-gregwar_captcha: ~
 
