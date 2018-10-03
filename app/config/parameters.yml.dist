@@ -5,10 +5,12 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: null
-    mailer_host: 127.0.0.1
+
+    mailer_transport: smtp
+    mailer_host: smtp.sendgrid.net
+    mailer_port: 2525
     mailer_user: ~
     mailer_password: ~
-    mailer_transport: mail
     mailer_delivery_address: autoecolefondary@yopmail.com
     mailer_sender: CER Fondary Commerce <postmaster@yopmail.com>
 

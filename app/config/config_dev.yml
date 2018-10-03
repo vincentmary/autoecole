@@ -30,3 +30,5 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
+swiftmailer:
+    disable_delivery: false

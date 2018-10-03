@@ -23,10 +23,13 @@ class Mailer
      */
     private $mailerDeliveryAddress;
 
-    public function __construct($mailerSender, $mailerDeliveryAddress)
+    private $mailer;
+
+    public function __construct($mailerSender, $mailerDeliveryAddress, \Swift_Mailer $mailer)
     {
         $this->mailerSender = $mailerSender;
         $this->mailerDeliveryAddress = $mailerDeliveryAddress;
+        $this->mailer = $mailer;
     }
 
     public function send(ContactType $contact)
@@ -38,17 +41,25 @@ class Mailer
         $subject .= 'Message de ' . $contact->getName() . ' ' . $contact->getMail();
 
         //add phone if set in message
-        $message = $contact->getTel() ? ' Téléphone ' . $contact->getTel() . '<br/><br/>' : '';
-        $message .= $contact->getMessage();
-        $contact->setMessage($message);
+        $body = $contact->getTel() ? ' Téléphone ' . $contact->getTel() . '<br/><br/>' : '';
+        $body .= $contact->getMessage();
 
-        $headers = "From: " . $this->mailerSender . " \r\n".
-            "Reply-To: " . $contact->getMail() . "\r\n".
-            "MIME-Version: 1.0" . "\r\n" .
-            "Content-type: text/html; charset=UTF-8" . "\r\n".
-            "X-Mailer: PHP/" . phpversion();
+        $contact->setMessage($body);
 
-        return mail($this->mailerDeliveryAddress, $subject, $contact->getMessage(), $headers);
+        $message = (new \Swift_Message($subject))
+            ->setFrom($this->mailerSender)
+            ->setTo($contact->getMail())
+            ->setBody($body, 'text/html');
+//
+//        $headers = "From: " . $this->mailerSender . " \r\n".
+//            "Reply-To: " . $contact->getMail() . "\r\n".
+//            "MIME-Version: 1.0" . "\r\n" .
+//            "Content-type: text/html; charset=UTF-8" . "\r\n".
+//            "X-Mailer: PHP/" . phpversion();
+//
+//        return mail($this->mailerDeliveryAddress, $subject, $contact->getMessage(), $headers);
+
+        $this->mailer->send($message);
     }
 
 }
