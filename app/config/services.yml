@@ -16,6 +16,7 @@ services:
   AppBundle\Service\Mailer:
     arguments:
       $mailerSender: '%mailer_sender%'
+      $mailerSenderLabel: '%mailer_sender_label%'
       $mailerDeliveryAddress: '%mailer_delivery_address%'
 
   AppBundle\Form\ContactType:
