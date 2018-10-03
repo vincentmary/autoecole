@@ -19,15 +19,25 @@ class Mailer
     private $mailerSender;
 
     /**
+     * @var String Mailer Sender Label
+     */
+    private $mailerSenderLabel;
+
+    /**
+     * @var \Swift_Mailer
+     */
+    private $mailer;
+
+    /**
      * @var String Delivery Address
      */
     private $mailerDeliveryAddress;
 
-    private $mailer;
 
-    public function __construct($mailerSender, $mailerDeliveryAddress, \Swift_Mailer $mailer)
+    public function __construct($mailerSender, $mailerSenderLabel, $mailerDeliveryAddress, \Swift_Mailer $mailer)
     {
         $this->mailerSender = $mailerSender;
+        $this->mailerSenderLabel = $mailerSenderLabel;
         $this->mailerDeliveryAddress = $mailerDeliveryAddress;
         $this->mailer = $mailer;
     }
@@ -47,7 +57,9 @@ class Mailer
         $contact->setMessage($body);
 
         $message = (new \Swift_Message($subject))
-            ->setFrom($this->mailerSender)
+            ->setFrom([
+                $this->mailerSender => $this->mailerSenderLabel
+            ])
             ->setTo($contact->getMail())
             ->setBody($body, 'text/html');
 //
@@ -59,7 +71,7 @@ class Mailer
 //
 //        return mail($this->mailerDeliveryAddress, $subject, $contact->getMessage(), $headers);
 
-        $this->mailer->send($message);
+        return $this->mailer->send($message);
     }
 
 }
