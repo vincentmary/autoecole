@@ -85,4 +85,12 @@ class DefaultController extends Controller
     {
         return $this->render("AppBundle:default:coordonnees.html.twig");
     }
+
+    /**
+     * @Route("/ressources", name="ressources")
+     */
+    public function ressourcesAction(Request $request)
+    {
+        return $this->render("AppBundle:default:ressources.html.twig");
+    }
 }
