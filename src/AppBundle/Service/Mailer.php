@@ -62,14 +62,6 @@ class Mailer
             ])
             ->setTo($contact->getMail())
             ->setBody($body, 'text/html');
-//
-//        $headers = "From: " . $this->mailerSender . " \r\n".
-//            "Reply-To: " . $contact->getMail() . "\r\n".
-//            "MIME-Version: 1.0" . "\r\n" .
-//            "Content-type: text/html; charset=UTF-8" . "\r\n".
-//            "X-Mailer: PHP/" . phpversion();
-//
-//        return mail($this->mailerDeliveryAddress, $subject, $contact->getMessage(), $headers);
 
         return $this->mailer->send($message);
     }
