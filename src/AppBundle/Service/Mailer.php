@@ -60,7 +60,7 @@ class Mailer
             ->setFrom([
                 $this->mailerSender => $this->mailerSenderLabel
             ])
-            ->setTo($contact->getMail())
+            ->setTo($this->mailerDeliveryAddress)
             ->setBody($body, 'text/html');
 
         return $this->mailer->send($message);
