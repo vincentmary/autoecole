@@ -4,24 +4,31 @@
     <nav class="dropdown">
         <div id="offre" class="container">
             <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Offres
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu permis-menu" aria-labbelledby="dropdownMenu1">
-              <li class="permis-menu-item">
-                <a href="#permis-b" class="text-center">Permis B</a>
-              </li>
-              <li class="permis-menu-item">
-                <a href="#permis-aac" class="text-center">Conduite Accompagnée (Permis AAC)</a>
-              </li>
-              <li class="permis-menu-item">
-                <a href="#permis-etranger" class="text-center">Permis étranger</a>
-              </li>
-              <li class="permis-menu-item">
-                <a href="#annulation-permis" class="text-center">Annulation code / permis</a>
-              </li>
-            </ul>
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    Offres
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu permis-menu" aria-labbelledby="dropdownMenu1">
+                    <li class="permis-menu-item">
+                        <a href="#permis-b" class="text-center">Permis B</a>
+                    </li>
+                    <li class="permis-menu-item">
+                        <a href="#permis-b-automatique" class="text-center">Permis B Automatique</a>
+                    </li>
+                    <li class="permis-menu-item">
+                        <a href="#passerelle-automatique-manuelle" class="text-center">Passerelle Permis B Auto - Manuelle</a>
+                    </li>
+                    <li class="permis-menu-item">
+                        <a href="#permis-aac" class="text-center">Conduite Accompagnée (Permis AAC)</a>
+                    </li>
+                    <li class="permis-menu-item">
+                        <a href="#permis-etranger" class="text-center">Permis étranger</a>
+                    </li>
+                    <li class="permis-menu-item">
+                        <a href="#annulation-permis" class="text-center">Annulation code / permis</a>
+                    </li>
+                </ul>
             </div>
             <div class="offre-title text-center">Permis B</div>
         </div>
@@ -30,10 +37,9 @@
         <div>
             <ul class="list-group">
                 {% set lists = ['20H / 26H / 30H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (ficher de suivi / Livre de code / Livret de questions orales)'
-                ,'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois) ', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', ' 1 accompagnement à l\'examen de la conduite']
-                %}
+                    ,'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois) ', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', ' 1 accompagnement à l\'examen de la conduite'] %}
                 {% for list in lists %}
-                     <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                    <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
                 {% endfor %}
             </ul>
             <div class="text-center">
@@ -41,71 +47,94 @@
             </div>
         </div>
     </div>
+    <div id="permis-b-automatique" class="container hidden permis-liste">
+        <div>
+            <ul class="list-group">
+                {% set lists = ['13H / 20H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fichier de suivi / Livre de code)'
+                    ,'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois) ', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', ' 1 accompagnement à l\'examen pratique'] %}
+                {% for list in lists %}
+                    <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                {% endfor %}
+            </ul>
+            <div class="text-center">
+                <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-b-automatique'}) }}">Plus d'informations</a>
+            </div>
+        </div>
+    </div>
+    <div id="passerelle-automatique-manuelle" class="container hidden permis-liste">
+        <div>
+            <ul class="list-group">
+                {% set lists = ['Frais de gestion', '7H de conduite', 'Attestation de suivi de la formation'] %}
+                {% for list in lists %}
+                    <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                {% endfor %}
+            </ul>
+            <div class="text-center">
+                <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-b-automatique'}) }}">Plus d'informations</a>
+            </div>
+        </div>
+    </div>
     <div id="permis-aac" class="container hidden permis-liste">
         <div>
-          <ul class="list-group">
-            {% set lists = ['20H / 26H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription'
-              ,'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales / Livret accompagnateur)', 'Cours de code en salle (6 mois)'
-              ,'Packweb - code sur internet (3 mois)', ' 1 accompagnement à l\'examen théorique (+30€ Redevance ETG) ', '1 accompagnement à l\'examen de la conduite']
-            %}
-            {% for list in lists %}
-                <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
-            {% endfor %}
-          </ul>
+            <ul class="list-group">
+                {% set lists = ['20H / 26H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription'
+                    ,'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales / Livret accompagnateur)', 'Cours de code en salle (6 mois)'
+                    ,'Packweb - code sur internet (3 mois)', ' 1 accompagnement à l\'examen théorique (+30€ Redevance ETG) ', '1 accompagnement à l\'examen de la conduite'] %}
+                {% for list in lists %}
+                    <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="text-center">
             <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-aac'}) }}">Plus d'informations</a>
         </div>
     </div>
     <div id="permis-etranger" class="container hidden permis-liste">
-      <div>
-        <ul class="list-group">
-          {% set lists = ['15H / 20H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
-          'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite']
-          %}
-          {% for list in lists %}
-                <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="text-center">
+        <div>
+            <ul class="list-group">
+                {% set lists = ['15H / 20H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+                    'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite'] %}
+                {% for list in lists %}
+                    <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="text-center">
             <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-etranger'}) }}">Plus d'informations</a>
-      </div>
+        </div>
     </div>
     <div id="annulation-permis" class="container hidden permis-liste">
-      <div class="row">
-        <div class="row text-center h5">
-            Code
+        <div class="row">
+            <div class="row text-center h5">
+                Code
+            </div>
+            <div class="row">
+                <ul class="list-group">
+                    {% set lists = ['Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+                        'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)'] %}
+                    {% for list in lists %}
+                        <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
         <div class="row">
-          <ul class="list-group">
-              {% set lists = ['Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
-              'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)']
-              %}
-              {% for list in lists %}
-                  <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
-              {% endfor %}
-          </ul>
+            <div class="row text-center h5">
+                Permis
+            </div>
+            <div class="row">
+                <ul class="list-group">
+                    {% set lists = ['10H / 15H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
+                        'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite'] %}
+                    {% for list in lists %}
+                        <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="row text-center h5">
-            Permis
+        <div class="text-center">
+            <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-annulation'}) }}">Plus d'informations</a>
         </div>
-        <div class="row">
-          <ul class="list-group">
-              {% set lists = ['10H / 15H de conduite', 'Une heure d\'évaluation de départ', 'Frais d\'inscription', 'Pochette pédagogique (fiche de suivi / livre de code / Livret de questions orales)',
-              'Cours de code en salle (6 mois)', 'Packweb - code sur internet (3 mois)', '1 accompagnement à l\'examen théorique (+30€ Redevance ETG)', '1 accompagnement à l\'examen de la conduite']
-              %}
-              {% for list in lists %}
-                  <li class="list-group-item"><span class="glyphicon glyphicon-star red"></span> {{ list }}</li>
-              {% endfor %}
-          </ul>
-        </div>
-      </div>
-      <div class="text-center">
-          <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-annulation'}) }}">Plus d'informations</a>
-      </div>
     </div>
 {% endblock %}
 
