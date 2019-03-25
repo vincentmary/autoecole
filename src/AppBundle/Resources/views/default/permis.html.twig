@@ -17,7 +17,7 @@
                         <a href="#permis-b-automatique" class="text-center">Permis B Automatique</a>
                     </li>
                     <li class="permis-menu-item">
-                        <a href="#passerelle-automatique-manuelle" class="text-center">Passerelle Permis B Auto - Manuelle</a>
+                        <a href="#passerelle-automatique-manuel" class="text-center">Passerelle Permis B Auto - Manuel</a>
                     </li>
                     <li class="permis-menu-item">
                         <a href="#permis-aac" class="text-center">Conduite Accompagnée (Permis AAC)</a>
@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-    <div id="passerelle-automatique-manuelle" class="container hidden permis-liste">
+    <div id="passerelle-automatique-manuel" class="container hidden permis-liste">
         <div>
             <ul class="list-group">
                 {% set lists = ['Frais de gestion', '7H de conduite', 'Attestation de suivi de la formation'] %}
@@ -70,7 +70,7 @@
                 {% endfor %}
             </ul>
             <div class="text-center">
-                <a class="moreinfos" href="{{ path('contact', {'type': 'Permis-b-automatique'}) }}">Plus d'informations</a>
+                <a class="moreinfos" href="{{ path('contact', {'type': 'Passerelle-automatique-manuel'}) }}">Plus d'informations</a>
             </div>
         </div>
     </div>
