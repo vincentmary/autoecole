@@ -30,5 +30,11 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
+# Swiftmailer Configuration
 swiftmailer:
-    disable_delivery: false
+    transport:  "%mailer_transport%"
+    spool:      { type: memory }
+    host:       "%mailer_host%"
+    port:       "%mailer_port%"
+    username:   "%mailer_user%"
+    password:   "%mailer_password%"
