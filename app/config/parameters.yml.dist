@@ -11,8 +11,8 @@ parameters:
     mailer_port: 2525
     mailer_user: ~
     mailer_password: ~
-    mailer_delivery_address: #MAIL_DELIVERY_ADDRESS#"
-    mailer_sender: #MAIL_SENDER#
+    mailer_delivery_address: autoecolefondary@yopmail.com
+    mailer_sender: postmaster@yopmail.com
     mailer_sender_label: "CER Fondary Commerce"
 
     google_captcha_secret_key: SECRETKEY
