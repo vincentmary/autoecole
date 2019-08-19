@@ -4,14 +4,17 @@ services:
     nginx:
         build: docker/nginx
         restart: always
-        hostname: autoecole.dev
+        hostname: autoecole.local
         container_name: nginx_autoecole
         links:
             - php
-        ports:
-            - 5001:80
         volumes:
             - $PWD:/srv/www/autoecole
+        labels:
+            - traefik.enable=true
+            - traefik.frontend.rule=Host:autoecole.local
+            - traefik.port=80
+
 
     php:
         build: docker/php
@@ -21,3 +24,22 @@ services:
             - 9000:9000
         volumes:
             - $PWD:/srv/www/autoecole
+        environment:
+            - PLATFORM_ENV=local
+
+    ## Proxy Traefik
+    proxy:
+        container_name: proxy_autolecole
+        image: traefik:1.7.6-alpine
+        ports:
+            - '80:80'
+            - '8080:8080'
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./traefik.toml:/traefik.toml
+        labels:
+            - traefik.enable=true
+            - traefik.frontend.rule=Host:monitor.autoecole.local
+            - traefik.port=8080
+
+

@@ -1,0 +1,16 @@
+defaultEntryPoints = ["http"]
+
+[api]
+    entrypoint="dashboard"
+    debug = true
+
+[Docker]
+    domain = "autoecole.local"
+    watch = true
+    network = "web"
+
+[entryPoints]
+  [entryPoints.dashboard]
+    address = ":8080"
+  [entryPoints.http]
+    address = ":80"
