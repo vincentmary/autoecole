@@ -14,16 +14,6 @@ use AppBundle\Form\ContactType;
 class Mailer
 {
     /**
-     * @var String The sender mail
-     */
-    private $mailerSender;
-
-    /**
-     * @var String Mailer Sender Label
-     */
-    private $mailerSenderLabel;
-
-    /**
      * @var \Swift_Mailer
      */
     private $mailer;
@@ -34,10 +24,8 @@ class Mailer
     private $mailerDeliveryAddress;
 
 
-    public function __construct($mailerSender, $mailerSenderLabel, $mailerDeliveryAddress, \Swift_Mailer $mailer)
+    public function __construct($mailerDeliveryAddress, \Swift_Mailer $mailer)
     {
-        $this->mailerSender = $mailerSender;
-        $this->mailerSenderLabel = $mailerSenderLabel;
         $this->mailerDeliveryAddress = $mailerDeliveryAddress;
         $this->mailer = $mailer;
     }
@@ -58,12 +46,19 @@ class Mailer
 
         $message = (new \Swift_Message($subject))
             ->setFrom([
-                $this->mailerSender => $this->mailerSenderLabel
+                $contact->getMail() => $contact->getMail()
             ])
             ->setTo($this->mailerDeliveryAddress)
             ->setBody($body, 'text/html');
 
         return $this->mailer->send($message);
+    }
+
+    /**
+     * @param string $deliveryAddress
+     */
+    public function setDeliveryAdress($deliveryAddress) {
+        $this->mailerDeliveryAddress = $deliveryAddress;
     }
 
 }

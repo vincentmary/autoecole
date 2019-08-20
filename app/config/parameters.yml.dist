@@ -7,14 +7,13 @@ parameters:
     database_password: null
 
     mailer_transport: smtp
-    mailer_host: smtp.sendgrid.net
-    mailer_port: 2525
-    mailer_user: ~
+    mailer_host: ~
+    mailer_port: ~
+    mailer_username: ~
     mailer_password: ~
-    mailer_delivery_address: autoecolefondary@yopmail.com
-    mailer_sender: postmaster@yopmail.com
-    mailer_sender_label: "CER Fondary Commerce"
+    mailer_auth_mode: ~
+    mailer_delivery_address: ~
 
-    google_captcha_secret_key: SECRETKEY
+    google_captcha_secret_key: ~
     secret: 40d0aad2673bbb5bf00b49983b81c0de1a0630d2
 
