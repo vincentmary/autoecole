@@ -1,7 +1,7 @@
 # php7-fpm/Dockerfile
 FROM php:7.2-fpm
 
-RUN apt-get update && apt-get install -y
+RUN apt-get update && apt install zip unzip -y && apt install git -y &&  apt install -y
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
